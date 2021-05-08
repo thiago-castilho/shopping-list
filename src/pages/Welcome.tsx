@@ -5,14 +5,24 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+
 import SafeAreaWrapper from '../components/SafeAreaWrapper';
 import { Splash } from '../components/Splash';
-import { Feather } from '@expo/vector-icons';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+import { useNavigation } from '@react-navigation/core';
 
 
 export function Welcome() {
+
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('MyItems');
+  }
+
   return (
     <SafeAreaWrapper>
       <View style={styles.container}>
@@ -24,13 +34,12 @@ export function Welcome() {
         <TouchableOpacity
           style={styles.button}
           activeOpacity={0.7}
+          onPress={handleStart}
         >
-          <Text>
-            <Feather
-              name="chevron-right"
-              style={styles.buttonIcon}
-            />
-          </Text>
+          <Feather
+            name="chevron-right"
+            style={styles.buttonIcon}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaWrapper>

@@ -2,10 +2,7 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
-import { Welcome } from './src/pages/Welcome';
-
-import SafeAreaWrapper from './src/components/SafeAreaWrapper';
-
+import Routes from './src/routes';
 
 export default function App() {
 
@@ -18,8 +15,6 @@ export default function App() {
   if (!fontsLoaded)
     return (<AppLoading />)
   return (
-    <SafeAreaWrapper>
-      <Welcome />
-    </SafeAreaWrapper>
+    <Routes />
   )
 }
